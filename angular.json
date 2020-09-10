@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "jenkins-local-bogus"
+    }
+  },
+  "defaultProject": "jenkins-local-bogus",
+  "cli": {
+    "analytics": "8bd889dd-549f-40fb-b82c-0d9e29f61e1b"
+  }
 }
