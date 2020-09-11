@@ -17,7 +17,7 @@ pipeline
                 nodejs(nodeJSInstallationName: 'nodeJS') {
                     
                     sh 'node -v'
-                    
+                    sh 'npm -v'
                 }
                 
                 echo 'Build stage done...'
