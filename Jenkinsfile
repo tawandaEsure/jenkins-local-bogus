@@ -18,23 +18,11 @@ pipeline
                     
                     sh 'node -v'
                     sh 'npm -v'
+                    sh 'npm i'
                 }
                 
                 echo 'Build stage done...'
             }
-        }
-    }
-    post
-    {
-        success
-        {
-            echo 'SUCCESS'
-            slackSend (color: '#00FF00', message: "SUCCESSFUL => JOB ::  '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-        }
-        failure
-        {
-            echo 'Result...'
-            echo 'FAILED'
         }
     }
 }
