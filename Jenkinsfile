@@ -14,12 +14,12 @@ pipeline
         stage('Build') {
             steps {
                 // Run the maven build
-                nodejs(nodeJSInstallationName: 'Node 14') {
-                    sh 'npm config ls'
+                nodejs(nodeJSInstallationName: 'Node 10.0.0') {
+                    
                     sh 'node -v'
-                    sh 'npm'
+                    
                 }
-                sh 'node --version'
+                
                 echo 'Build stage done...'
             }
         }
