@@ -1,6 +1,8 @@
 pipeline
 {
-    agent any
+    agent {
+        docker { image 'node:14-alpine' }
+    }
     stages
     {
         stage ('Checkout Script From Git'){
@@ -9,6 +11,11 @@ pipeline
                     git url: 'git@github.com:tawandaEsure/jenkins-local-bogus.git'
                     echo 'Checkout From Git - deployment scripts stage done...'
                 }
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'node --version'
             }
         }
         stage('Build') {
