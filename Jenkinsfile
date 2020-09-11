@@ -1,28 +1,27 @@
-pipeline
+ipeline
 {
     agent any
-    tools { nodejs 'node' }
+    tools
+    {
+        maven 'Maven'
+        jdk 'Java'
+    }
 
     stages
     {
-        stage ('Checkout Script From Git')
-        {
-            steps
-            {
-                dir('depscripts') {
+        stage ('Checkout Script From Git'){
+            steps{
+                dir('depscripts'){
                     git url: 'git@github.com:tawandaEsure/jenkins-local-bogus.git'
                     echo 'Checkout From Git - deployment scripts stage done...'
                 }
             }
         }
         stage('Build') {
-            steps {
+            steps{
                 // Run the maven build
 
                 echo 'Build stage done...'
-                 nodejs(nodeJSInstallationName: 'Node 6.x', configId: '<config-file-provider-id>') {
-                    sh 'npm config ls'
-                }
             }
         }
     }
@@ -30,7 +29,9 @@ pipeline
     {
         success
         {
+
             echo 'SUCCESS'
+            slackSend (color: '#00FF00', message: "SUCCESSFUL => JOB ::  '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
         }
         failure
         {
