@@ -14,7 +14,7 @@ pipeline
         stage('Build') {
             steps{
                 // Run the maven build
-                sh 'npm -v'
+                sh 'node --version'
                 echo 'Build stage done...'
             }
         }
