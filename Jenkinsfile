@@ -19,6 +19,7 @@ pipeline
                     sh 'node -v'
                     sh 'npm -v'
                     sh 'npm i'
+                    sh 'npm test'
                 }
                 
                 echo 'Build stage done...'
