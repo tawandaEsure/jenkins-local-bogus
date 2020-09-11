@@ -3,20 +3,24 @@ pipeline
     agent any
     stages
     {
-        stage ('Checkout Script From Git'){
-            steps{
-                dir('depscripts'){
+        stage ('Checkout Script From Git') {
+            steps {
+                dir('depscripts') {
                     git url: 'git@github.com:tawandaEsure/jenkins-local-bogus.git'
                     echo 'Checkout From Git - deployment scripts stage done...'
                 }
             }
         }
         stage('Build') {
-            steps{
+            steps {
                 // Run the maven build
+                nodejs(nodeJSInstallationName: 'Node 14') {
+                    sh 'npm config ls'
+                    sh 'node -v'
+                    sh 'npm'
+                }
                 sh 'node --version'
-                sh 'npm -v'
-                
+                echo 'Build stage done...'
             }
         }
     }
@@ -24,7 +28,6 @@ pipeline
     {
         success
         {
-
             echo 'SUCCESS'
             slackSend (color: '#00FF00', message: "SUCCESSFUL => JOB ::  '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
         }
