@@ -1,6 +1,6 @@
 {
-  "name": "jenkins-local-bogus",
-  "version": "0.0.0",
+  "name": "jenkins-local-bogus-test-esure",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~10.0.14",
     "@angular/common": "~10.0.14",
