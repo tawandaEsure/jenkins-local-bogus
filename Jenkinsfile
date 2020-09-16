@@ -19,7 +19,7 @@ pipeline
                     sh 'node -v'
                     sh 'npm -v'
                     sh 'npm i'
-                    sh 'npm test'
+                    sh 'ng test --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox'
                 }
                 
                 echo 'Build stage done...'
