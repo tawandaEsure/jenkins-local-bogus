@@ -1,6 +1,5 @@
 pipeline
 {
-    
     agent any
     tools
     {
@@ -26,8 +25,14 @@ pipeline
         }
         stage('Test') {
             steps {
-                sh 'npm run test --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox'
+                sh 'npm run test --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox --forceExit'
                 echo 'Test stage done...'
+            }
+        }
+        stage('Publish') {
+            steps {
+                sh 'npm publish'
+                echo 'Publish stage done...'
             }
         }
     }
