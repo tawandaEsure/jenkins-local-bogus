@@ -25,7 +25,7 @@ pipeline
         }
         stage('Test') {
             steps {
-                sh 'npm run test --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox --forceExit'
+                sh 'npm run test --no-watch --no-progress --forceexit --browsers=ChromeHeadlessNoSandbox '
                 echo 'Test stage done...'
             }
         }
